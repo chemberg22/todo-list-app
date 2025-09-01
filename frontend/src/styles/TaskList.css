@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+
+header {
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    font-family: 'Montserrat';
+    color: white;
+    border-bottom: 1px solid black;
+    background: linear-gradient(to bottom, #cc3300 0%, #ff3300 100%);
+    text-shadow: -1px -1px 0px rgb(255, 217, 0), 1px -1px 0px rgb(255, 217, 0), -1px  1px 0px rgb(255, 217, 0), 1px  1px 0px rgb(255, 217, 0);
+}
+
+.main-menu {
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    font-family: 'Montserrat';
+    color: white;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    background: linear-gradient(to bottom, #cc3300 0%, #ff3300 100%);
+}
+
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+.new-registration {
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+}
+
+.edit-button {
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.delete-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    table-layout: fixed;
+}
+
+.user-table th,
+.user-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    overflow: hidden;
+}
+
+.user-table th {
+    background: #e63200;
+    color: white;
+    font-family: 'Montserrat';
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.priority-1 { color: green; font-weight: bold; }
+.priority-2 { color: orange; font-weight: bold; }
+.priority-3 { color: red; font-weight: bold; } 
+
+.no-tasks {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}
+
+.error {
+    color: red;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.completed {
+    color: green;
+    font-weight: bold;
+    font-family: 'Montserrat';
+}
+
+.pending {
+    color: red;
+    font-weight: bold;
+    font-family: 'Montserrat';
+}
