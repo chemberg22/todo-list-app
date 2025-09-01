@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getTasks, deleteTask } from '../services/api';
 import '../styles/TaskList.css';
 
+// Maps task priorities to labels
 const getPriorityLabel = (priority) => {
   switch (priority) {
     case 1: return "Low";
@@ -11,12 +12,15 @@ const getPriorityLabel = (priority) => {
   }
 };
 
+// Component that displays a list of tasks with options to edit or delete
+// @return = JSX element, task list component
 function TaskList() {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // Fetches tasks from the API and updates the component state
   useEffect(() => {
     async function fetchTasks() {
       try {
@@ -33,6 +37,8 @@ function TaskList() {
     fetchTasks();
   }, []);
 
+  // Handles task deletion
+  // @param = task ID
   const handleDelete = async (id) => {
     try {
       await deleteTask(id);
@@ -48,9 +54,7 @@ function TaskList() {
 
   if (error) {
     return <div className="container error">{error}</div>;
-  }
-
-  
+  }  
 
   return (
     <>

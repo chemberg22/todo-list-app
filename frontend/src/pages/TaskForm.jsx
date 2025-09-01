@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { createTask } from '../services/api';
 import '../styles/TaskForm.css';
 
+// Component for creating a new task
+// @return = JSX element, task creation form component
 function TaskForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -14,6 +16,8 @@ function TaskForm() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // Handles changes to form inputs
+  // @param = input change event
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     setFormData({
@@ -22,6 +26,7 @@ function TaskForm() {
     });
   };
 
+  // Handles form submission to create a new task
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name.trim()) {
@@ -43,6 +48,7 @@ function TaskForm() {
     }
   };
 
+  // Navigates back to the task list
   const handleCancel = () => {
     navigate('/');
   };

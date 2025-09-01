@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getTask, updateTask } from '../services/api';
 import '../styles/TaskEdit.css';
 
+// Component for editing an existing task
+// @return = JSX element, task edit form component
 function TaskEdit() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ function TaskEdit() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
 
+  // Fetches the task data by ID and populates the form
   useEffect(() => {
     async function fetchTask() {
       try {
@@ -29,13 +32,15 @@ function TaskEdit() {
         });
         setLoading(false);
       } catch (err) {
-        setError(err.message || 'Error loading task');
+        setError(err.message || 'Failed to load task');
         setLoading(false);
       }
     }
     fetchTask();
   }, [id]);
 
+  // Handles changes to form inputs
+  // @param = input change event
   const handleChange = (e) => {
     const { name, value, type } = e.target;
     setFormData({
@@ -44,6 +49,8 @@ function TaskEdit() {
     });
   };
 
+  // Handles form submission to update the task
+  // @param = form submission event
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name.trim()) {
@@ -60,11 +67,12 @@ function TaskEdit() {
       });
       navigate('/');
     } catch (err) {
-      setError(err.message || 'Error updating task');
+      setError(err.message || 'Failed to update task');
       setSaving(false);
     }
   };
 
+  // Navigates back to the task list
   const handleCancel = () => {
     navigate('/');
   };
