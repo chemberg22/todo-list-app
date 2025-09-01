@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;
 
+// Represents a Task entity in the application
 @Entity
 @Table(name = "tasks")
 public class Task {
@@ -28,6 +29,17 @@ public class Task {
     @Column(nullable = false)
     @NotNull(message = "Task status is required.")
     private boolean status;
+
+    // Constructors
+    public Task() {
+    }
+
+    public Task(String name, String description, int priority, boolean status) {
+        this.name = name;
+        this.description = description;
+        this.priority = priority;
+        this.status = status;
+    }
 
     // Getters
     public Long getId() {
