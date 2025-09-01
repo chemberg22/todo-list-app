@@ -1,54 +1,54 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080', // Substitua pela URL do seu backend
+  baseURL: 'http://localhost:8080',
 });
 
-// Função para listar todas as tarefas
+// Lists all tasks
 export const getTasks = async () => {
   try {
     const response = await api.get('/tasks');
     return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'Erro ao buscar tarefas');
+    throw new Error(error.response?.data?.message || 'Error searching for tasks');
   }
 };
 
-// Buscar task específica por ID
+// Lists task by ID
 export const getTask = async (id) => {
   try {
     const response = await api.get(`/tasks/${id}`);
     return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'Erro ao buscar task');
+    throw new Error(error.response?.data?.message || 'Error searching task');
   }
 };
 
-// Função para criar uma nova tarefa
+// Creates new task
 export const createTask = async (task) => {
   try {
     const response = await api.post('/tasks', task);
     return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'Erro ao criar tarefa');
+    throw new Error(error.response?.data?.message || 'Error creating task');
   }
 };
 
-// Função para atualizar uma tarefa existente
+// Updates task by ID
 export const updateTask = async (id, task) => {
   try {
     const response = await api.put(`/tasks/${id}`, task);
     return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'Erro ao atualizar tarefa');
+    throw new Error(error.response?.data?.message || 'Error updating task');
   }
 };
 
-// Função para excluir uma tarefa
+// Deletes task by ID
 export const deleteTask = async (id) => {
   try {
     await api.delete(`/tasks/${id}`);
   } catch (error) {
-    throw new Error(error.response?.data?.message || 'Erro ao excluir tarefa');
+    throw new Error(error.response?.data?.message || 'Error deleting task');
   }
 };
