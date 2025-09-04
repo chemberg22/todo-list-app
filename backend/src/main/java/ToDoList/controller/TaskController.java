@@ -47,7 +47,7 @@ public class TaskController {
     }
 
     // Updates an existing task by ID
-    // @param = task ID to update
+    // @param = task ID and task body to update
     // @return = updated task
     @PutMapping("{id}")
     public ResponseEntity<Task> updateTask(@PathVariable Long id, @Valid @RequestBody Task task) {
